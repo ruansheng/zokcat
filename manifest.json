@@ -1,0 +1,33 @@
+{
+"name": "zokcat",
+"version": "1.0.0",
+"manifest_version": 2,
+"description": "自定义抓取页面数据",
+"browser_action": {
+"default_title": "自定义抓取页面数据",
+"default_icon": "icon.png"
+},
+"options_page": "options.html",
+"background": {
+       "scripts": ["background.js"]
+},
+"icons": 
+  { 
+    "16": "icon.png",             
+    "48": "icon.png",            
+    "128": "icon.png" 
+  }, 
+"permissions": [
+	"http://*/*",
+	"tabs",
+	"unlimitedStorage"
+],
+"content_scripts": [
+    {
+	  "matches": ["http://*/*","https://*/*"],
+	  "run_at": "document_end",
+      "js": ["content.js"]
+    }
+  ]
+
+}
